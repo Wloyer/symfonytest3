@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\SlugTrait;
 use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
 {
+    use SlugTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -18,16 +20,27 @@ class Categorie
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 100)]
+    private ?int $categoryOrder = null;
+
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: Categorie::class)]
     private Collection $categories;
 
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Product::class)]
     private Collection $products;
 
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categoriess')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    private ?self $parent = null;
+
+    #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
+    private Collection $categoriess;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->categoriess = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -43,6 +56,18 @@ class Categorie
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCategoryOrder() : ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoryOrder(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
 
         return $this;
     }
@@ -101,6 +126,48 @@ class Categorie
             // set the owning side to null (unless already changed)
             if ($product->getCategorie() === $this) {
                 $product->setCategorie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getParent(): ?self
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?self $parent): self
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getCategoriess(): Collection
+    {
+        return $this->categoriess;
+    }
+
+    public function addCategoriess(self $categoriess): self
+    {
+        if (!$this->categoriess->contains($categoriess)) {
+            $this->categoriess->add($categoriess);
+            $categoriess->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategoriess(self $categoriess): self
+    {
+        if ($this->categoriess->removeElement($categoriess)) {
+            // set the owning side to null (unless already changed)
+            if ($categoriess->getParent() === $this) {
+                $categoriess->setParent(null);
             }
         }
 
