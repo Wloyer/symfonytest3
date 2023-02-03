@@ -80,7 +80,7 @@ class RegistrationController extends AbstractController
     public function verifyUser($token, JWTService $jwt, UserRepository $userRepository, EntityManagerInterface $em): Response
     {
         //On vérifie si le token est valide, n'a pas expiré et n'a pas été modifier
-        if ($jwt->isValid($token) && !$jwt->isExpired($token) && $jwt->check($token, $this->getParameter('app.jwtsecret'))) { {
+        if ($jwt->isValid($token) && !$jwt->isExpired($token) && $jwt->check($token, $this->getParameter('app.jwtsecret')))  {
                 //on récuupére le payload
                 $payload = $jwt->getPayload($token);
 
@@ -100,7 +100,7 @@ class RegistrationController extends AbstractController
             $this->addFlash('danger', 'Le token est invalide ou a expiré');
             return $this->redirectToRoute('app_login');
         }
-    }
+    
 
     #[Route('/renvoiverif', name:'resend_verif')]
     public function resendVerif(JWTService $jwt, SendMailService $mail, UserRepository $userRepository): Response
