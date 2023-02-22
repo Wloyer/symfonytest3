@@ -1,0 +1,29 @@
+body{
+    background: rgb(242, 92, 5);
+    background: linear-gradient(
+    90deg,
+    rgba(242, 92, 5, 1) 0%,
+    rgba(166, 3, 33, 1) 62%,
+    rgba(242, 135, 5, 1) 100%
+  ) !important;
+}
+h2, h1{
+    color:#023373;
+}
+.cardCustom{
+    background:#F28705;
+    --bs-card-spacer-y: 2rem;
+    --bs-card-spacer-x: 2rem;
+
+}
+h3{
+    color: #A60321;
+}
+.btnCustom{
+    background: rgb(2, 51, 115);
+    background: linear-gradient(
+    0deg,
+    rgba(2, 51, 115, 1) 25%,
+    rgba(3, 74, 166, 1) 57%
+  ) !important;
+}

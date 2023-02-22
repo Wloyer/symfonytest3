@@ -3,11 +3,11 @@
 
 
 {% block body %}
-<main class="container">
+<main class="container ">
     <section class="row">
         <div class="col-12">
-            <h1>Site e-commerce</h1>
-            <p> Bienvenue</p>
+            <h1>Bienvenue sur Saccahrose</h1>
+            <h2> Saccahrose est un site de vente de pâtisserie, recettes et ustensil de cuisine.</h2>
         </div>
         {% for category in categorie %}
         {% if category.parent == null %}
@@ -17,9 +17,9 @@
         {% else %}
             <div class="col-4">
                 <div class="card h-100" >
-                    <div class="card-body">
+                    <div class="card-body cardCustom">
                         <h3 class="card-title">{{category.name}}</h3>
-                        <a href="{{ path('categorie_list', {slug: category.slug}) }}" class="btn btn-primary">Voir les produits</a>
+                        <a href="{{ path('categorie_list', {slug: category.slug}) }}" class="btn btnCustom">Voir les produits</a>
                     </div>
                 </div>
             </div>
@@ -30,5 +30,39 @@
         </div>
     </section>
 </main>
+
+
+
+<style>
+body{
+    background: rgb(242, 92, 5);
+    background: linear-gradient(
+    90deg,
+    rgba(242, 92, 5, 1) 0%,
+    rgba(166, 3, 33, 1) 62%,
+    rgba(242, 135, 5, 1) 100%
+  ) !important;
+}
+h2, h1{
+    color:#023373;
+}
+.cardCustom{
+    background:#F28705;
+    --bs-card-spacer-y: 2rem;
+    --bs-card-spacer-x: 2rem;
+
+}
+h3{
+    color: #A60321;
+}
+.btnCustom{
+    background: rgb(2, 51, 115);
+    background: linear-gradient(
+    0deg,
+    rgba(2, 51, 115, 1) 25%,
+    rgba(3, 74, 166, 1) 57%
+  ) !important;
+}
+</style>
 
 {% endblock %}
