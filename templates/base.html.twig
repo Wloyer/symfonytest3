@@ -18,6 +18,7 @@
     </head>
     <body>
     <main>
+    <div class="color">
       {% include "_partials/_nav.html.twig" %}
         {# and app.user.is_Verified #}
 		{% if app.user and app.user.isVerified == false %}
@@ -35,6 +36,6 @@
          
         {% endblock %}
         </main>
-        {% include "_partials/_footer.html.twig" %}
+        {% include "_partials/_footer.html.twig" %}</div>
     </body>
 </html>

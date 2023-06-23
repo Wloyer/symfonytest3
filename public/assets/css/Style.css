@@ -2,7 +2,15 @@ body {
   min-height: 100vh !important;
   display: flex !important;
   flex-direction: column !important;
+  background-image: url("/assets/uploads/bg-saccahrose1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+/* .color{
+  background-image: linear-gradient(to right, #f25c05, #a60321, #f28705);
+} */
+
 main {
   flex-grow: 1 !important;
 }
@@ -42,12 +50,9 @@ a:hover {
 
 .navCustom {
   height: 100px;
-  background: rgb(2, 51, 115);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 51, 115, 1) 25%,
-    rgba(3, 74, 166, 1) 57%
-  );
+  /* border-bottom : solid ;
+  border-color: grey;
+  opacity: 0,33; */
   font: 25px alex-brush, sans-serif;
 }
 .nav-link {
@@ -57,23 +62,13 @@ a:hover {
   padding-left: 60px !important;
 }
 .mobileCustom {
-  background: rgb(2, 51, 115);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 51, 115, 1) 25%,
-    rgba(3, 74, 166, 1) 57%
-  );
   z-index: 1;
 }
 
 footer {
   height: 10%;
-  background: rgb(2, 51, 115);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 51, 115, 1) 25%,
-    rgba(3, 74, 166, 1) 57%
-  );  
+  background: white;
+  opacity: 0.20;  
   bottom: 0;
   width: 100%;
 }
