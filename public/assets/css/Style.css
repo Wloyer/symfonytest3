@@ -1,29 +1,134 @@
-body{
-    background: rgb(242, 92, 5);
-    background: linear-gradient(
-    90deg,
-    rgba(242, 92, 5, 1) 0%,
-    rgba(166, 3, 33, 1) 62%,
-    rgba(242, 135, 5, 1) 100%
-  ) !important;
+body {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
-h2, h1{
-    color:#023373;
+main {
+  flex-grow: 1 !important;
 }
-.cardCustom{
-    background:#F28705;
-    --bs-card-spacer-y: 2rem;
-    --bs-card-spacer-x: 2rem;
+h2,
+h1 {
+  color: #023373;
+  padding-bottom: 20px;
+  justify-content: center;
+}
 
+h3 {
+  color: aliceblue;
 }
-h3{
-    color: #A60321;
+.titreCustom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
-.btnCustom{
-    background: rgb(2, 51, 115);
-    background: linear-gradient(
+a {
+  color: aliceblue !important;
+}
+a:hover {
+  color: #f28705 !important;
+}
+.btnCustom {
+  background: rgb(2, 51, 115);
+  background: linear-gradient(
     0deg,
     rgba(2, 51, 115, 1) 25%,
     rgba(3, 74, 166, 1) 57%
-  ) !important;
+  );
+  display: block;
+  margin-top: 10px;
+}
+
+.navCustom {
+  height: 100px;
+  background: rgb(2, 51, 115);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 51, 115, 1) 25%,
+    rgba(3, 74, 166, 1) 57%
+  );
+  font: 25px alex-brush, sans-serif;
+}
+.nav-link {
+  padding-right: 60px !important;
+}
+.navbar-brand {
+  padding-left: 60px !important;
+}
+.mobileCustom {
+  background: rgb(2, 51, 115);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 51, 115, 1) 25%,
+    rgba(3, 74, 166, 1) 57%
+  );
+  z-index: 1;
+}
+
+footer {
+  height: 10%;
+  background: rgb(2, 51, 115);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 51, 115, 1) 25%,
+    rgba(3, 74, 166, 1) 57%
+  );  
+  bottom: 0;
+  width: 100%;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.img-logo {
+  width: 50px !important;
+  padding-left: 5px;
+  padding-bottom: 10px;
+}
+p {
+  color: #f25c05 !important;
+}
+
+.cardCustom {
+  background-image: linear-gradient(to right, #f25c05, #a60321, #f28705);
+  background-size: 200% auto;
+  animation: gradient 5s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+.mentionL{
+  text-decoration: none;
+}
+.adminNav{
+  color: #023373 !important;
+}
+.mainAdmin{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+a{
+  color:#f28705!important;
+}
+.cardCategorie{
+  box-shadow: 0px 5px 5px 0px ;
 }

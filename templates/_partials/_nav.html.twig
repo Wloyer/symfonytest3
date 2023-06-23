@@ -11,21 +11,21 @@
      {%if app.user %}
       {% if is_granted('ROLE_PRODUCT_ADMIN') %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('admin_index') }}"> Administration</a>
+                <a class="nav-link" href="{{ path('admin_index') }}">Administration</a>
             </li>
       {% endif %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Mon Compte</a>
+              <a class="nav-link " href="#">Mon Compte</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_logout') }}">Me Déconnecter</a>
+              <a class="nav-link" href="{{ path('app_logout') }}">Connexion</a>
             </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link .text-danger" href="{{ path('app_register') }}">M'inscrire</a>
+          <a class="nav-link " href="{{ path('app_register') }}">Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+          <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
         </li>
         {% endif %}
      </ul>
@@ -33,31 +33,3 @@
   </div>
 </nav>
 
-<style>
-.navCustom{
-  height: 100px;
-  background: rgb(2, 51, 115);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 51, 115, 1) 25%,
-    rgba(3, 74, 166, 1) 57%
-  ) ;
-  font: 25px alex-brush, sans-serif ; 
-}
-.mobileCustom{
-  background: rgb(2, 51, 115);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 51, 115, 1) 25%,
-    rgba(3, 74, 166, 1) 57%
-  ) ;
-  z-index: 1;
-} 
-a{
-  color:  #F25C05 !important;
-}
-a:hover{
-  color: #F28705 !important;
-}
-
-</style>
