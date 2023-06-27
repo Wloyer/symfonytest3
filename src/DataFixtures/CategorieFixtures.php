@@ -36,6 +36,8 @@ class CategorieFixtures extends Fixture
         $category->setName($name);
         $category->setSlug($this->slugger->slug($category->getName())->lower());
         $category->setParent($parent);
+        $category->setCategoryOrder($this->counter);
+        $category->setImage('default.jpg');
         $manager->persist($category);
 
         $this->addReference('cat-' . $this->counter, $category);

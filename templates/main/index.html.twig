@@ -17,9 +17,11 @@
         </div>
         {% else %}
             <div class="col-6">
-                <div class="card h-100" >
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('assets/uploads/products/mini/300x300-'  )}}" class="card-img-top" alt="...">
                     <div class="card-body cardCustom">
                         <h3 class="card-title">{{category.name}}</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="{{ path('categorie_list', {slug: category.slug}) }}" class="btn btnCustom">Voir les produits</a>
                     </div>
                 </div>
